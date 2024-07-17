@@ -3,24 +3,8 @@ import glob
 import os
 
 from .face_detection_yunet.yunet import YuNet
-from .text_recognition_crnn.crnn import CRNN
-from .face_recognition_sface.sface import SFace
-from .image_classification_ppresnet.ppresnet import PPResNet
-from .human_segmentation_pphumanseg.pphumanseg import PPHumanSeg
-from .person_detection_mediapipe.mp_persondet import MPPersonDet
-from .pose_estimation_mediapipe.mp_pose import MPPose
-from .qrcode_wechatqrcode.wechatqrcode import WeChatQRCode
-from .person_reid_youtureid.youtureid import YoutuReID
-from .image_classification_mobilenet.mobilenet import MobileNet
-from .palm_detection_mediapipe.mp_palmdet import MPPalmDet
-from .handpose_estimation_mediapipe.mp_handpose import MPHandPose
-from .license_plate_detection_yunet.lpd_yunet import LPD_YuNet
-from .object_detection_nanodet.nanodet import NanoDet
-from .object_detection_yolox.yolox import YoloX
-from .facial_expression_recognition.facial_fer_model import FacialExpressionRecog
-from .object_tracking_vittrack.vittrack import VitTrack
-from .text_detection_ppocr.ppocr_det import PPOCRDet
-from .image_segmentation_efficientsam.efficientSAM import EfficientSAM
+from .face_detection_cascade.cascdeclassifier import CascadeClassifier
+
 
 class ModuleRegistery:
     def __init__(self, name):
@@ -78,21 +62,4 @@ class ModuleRegistery:
 
 MODELS = ModuleRegistery('Models')
 MODELS.register(YuNet)
-MODELS.register(CRNN)
-MODELS.register(SFace)
-MODELS.register(PPResNet)
-MODELS.register(PPHumanSeg)
-MODELS.register(MPPersonDet)
-MODELS.register(MPPose)
-MODELS.register(WeChatQRCode)
-MODELS.register(YoutuReID)
-MODELS.register(MobileNet)
-MODELS.register(MPPalmDet)
-MODELS.register(MPHandPose)
-MODELS.register(LPD_YuNet)
-MODELS.register(NanoDet)
-MODELS.register(YoloX)
-MODELS.register(FacialExpressionRecog)
-MODELS.register(VitTrack)
-MODELS.register(PPOCRDet)
-MODELS.register(EfficientSAM)
+MODELS.register(CascadeClassifier)

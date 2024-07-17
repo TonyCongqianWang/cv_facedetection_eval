@@ -7,10 +7,7 @@ import cv2 as cv
 
 from datasets import DATASETS
 
-if "PYTHONPATH" in os.environ:
-    root_dir = os.environ["PYTHONPATH"]
-else:
-    root_dir = os.path.join("..", "..")
+root_dir = os.path.join("..", "..")
 sys.path.append(root_dir)
 from models import MODELS
 
@@ -21,42 +18,6 @@ parser.add_argument("--dataset_root", "-dr", type=str, required=True, help="Root
 args = parser.parse_args()
 
 models = dict(
-    mobilenetv1=dict(
-        name="MobileNet",
-        topic="image_classification",
-        modelPath=os.path.join(root_dir, "models/image_classification_mobilenet/image_classification_mobilenetv1_2022apr.onnx"),
-        topK=5,
-        loadLabel=False),
-    mobilenetv1_q=dict(
-        name="MobileNet",
-        topic="image_classification",
-        modelPath=os.path.join(root_dir, "models/image_classification_mobilenet/image_classification_mobilenetv1_2022apr_int8.onnx"),
-        topK=5,
-        loadLabel=False),
-    mobilenetv2=dict(
-        name="MobileNet",
-        topic="image_classification",
-        modelPath=os.path.join(root_dir, "models/image_classification_mobilenet/image_classification_mobilenetv2_2022apr.onnx"),
-        topK=5,
-        loadLabel=False),
-    mobilenetv2_q=dict(
-        name="MobileNet",
-        topic="image_classification",
-        modelPath=os.path.join(root_dir, "models/image_classification_mobilenet/image_classification_mobilenetv2_2022apr_int8.onnx"),
-        topK=5,
-        loadLabel=False),
-    ppresnet=dict(
-        name="PPResNet",
-        topic="image_classification",
-        modelPath=os.path.join(root_dir, "models/image_classification_ppresnet/image_classification_ppresnet50_2022jan.onnx"),
-        topK=5,
-        loadLabel=False),
-    ppresnet_q=dict(
-        name="PPResNet",
-        topic="image_classification",
-        modelPath=os.path.join(root_dir, "models/image_classification_ppresnet/image_classification_ppresnet50_2022jan_int8.onnx"),
-        topK=5,
-        loadLabel=False),
     yunet=dict(
         name="YuNet",
         topic="face_detection",
@@ -71,53 +32,24 @@ models = dict(
         topK=5000,
         confThreshold=0.3,
         nmsThreshold=0.45),
-    sface=dict(
-        name="SFace",
-        topic="face_recognition",
-        modelPath=os.path.join(root_dir, "models/face_recognition_sface/face_recognition_sface_2021dec.onnx")),
-    sface_q=dict(
-        name="SFace",
-        topic="face_recognition",
-        modelPath=os.path.join(root_dir, "models/face_recognition_sface/face_recognition_sface_2021dec_int8.onnx")),
-    crnn_en=dict(
-        name="CRNN",
-        topic="text_recognition",
-        modelPath=os.path.join(root_dir, "models/text_recognition_crnn/text_recognition_CRNN_EN_2021sep.onnx")),
-    crnn_en_q=dict(
-        name="CRNN",
-        topic="text_recognition",
-        modelPath=os.path.join(root_dir, "models/text_recognition_crnn/text_recognition_CRNN_EN_2022oct_int8.onnx")),
-    pphumanseg=dict(
-        name="PPHumanSeg",
-        topic="human_segmentation",
-        modelPath=os.path.join(root_dir, "models/human_segmentation_pphumanseg/human_segmentation_pphumanseg_2023mar.onnx")),
-    pphumanseg_q=dict(
-        name="PPHumanSeg",
-        topic="human_segmentation",
-        modelPath=os.path.join(root_dir, "models/human_segmentation_pphumanseg/human_segmentation_pphumanseg_2023mar_int8.onnx")),
+    cascade_haar=dict(
+        name="HaarCascade",
+        topic="face_detection"),    
+    cascade_haar_alt=dict(
+        name="HaarCascade",
+        topic="face_detection"),
+    cascade_lbp=dict(
+        name="LbpCascade",
+        topic="face_detection"),
+    cascade_lbp_improved=dict(
+        name="LbpCascade",
+        topic="face_detection"),
 )
 
 datasets = dict(
-        imagenet=dict(
-            name="ImageNet",
-            topic="image_classification",
-            size=224),
         widerface=dict(
             name="WIDERFace",
             topic="face_detection"),
-        lfw=dict(
-            name="LFW",
-            topic="face_recognition",
-            target_size=112),
-        icdar=dict(
-            name="ICDAR",
-            topic="text_recognition"),
-        iiit5k=dict(
-            name="IIIT5K",
-            topic="text_recognition"),
-        mini_supervisely=dict(
-            name="MiniSupervisely",
-            topic="human_segmentation"),
 )
 
 def main(args):
