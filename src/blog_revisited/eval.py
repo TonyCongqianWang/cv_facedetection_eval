@@ -1,5 +1,7 @@
 import argparse
 import cv2
+import sys
+import os
 import time
 
 parser = argparse.ArgumentParser("Simple inference with time evaluation on single image")
@@ -21,11 +23,13 @@ def detect_cascade(img, k, model_path):
     for i in range(1, k):
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
     toc = time.perf_counter()
-    print("Elapsed:", toc - tic)
-    export_result_img(img, faces)
+   
+    save_result(img, faces, toc - tic)
 
 
 def detect_yunet(img, k, model_path):
+    yunet_dir = os.path.join("..", "..") #TODO
+    sys.path.append(yunet_dir)
     from yunet import YuNet
     model = YuNet(modelPath=model_path,
               inputSize=[320, 320],
@@ -42,11 +46,17 @@ def detect_yunet(img, k, model_path):
         results = model.infer(img)
     toc = time.perf_counter()
     print("Elapsed:", toc - tic)
-    export_result_img(img, results)
+    faces = results # TODO
+    save_result(img, faces, toc - tic)
 
-def export_result_img(img, faces):
-    # TODO
-    pass
+def save_result(img, faces, elapsed):
+    out_file = os.path.join( args.out_dir, "/elapsed_time.txt")
+    with open(out_file) as f: 
+        print("Elapsed:", elapsed)
+        print("Elapsed:",elapsed, file = f)
+    out_file = os.path.join( args.out_dir, "/detection_img.jpg")
+    save_img = img.copy() #TODO
+    cv2.imwrite(save_img, img)
 
 
 img = cv2.imread(args.image_path)

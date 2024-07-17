@@ -7,7 +7,7 @@ import cv2 as cv
 
 from datasets import DATASETS
 
-root_dir = os.path.join("..", "..")
+root_dir = os.path.join("..", "..") #TODO
 sys.path.append(root_dir)
 from models import MODELS
 
@@ -21,28 +21,22 @@ models = dict(
     yunet=dict(
         name="YuNet",
         topic="face_detection",
-        modelPath=os.path.join(root_dir, "models/face_detection_yunet/face_detection_yunet_2023mar.onnx"),
-        topK=5000,
-        confThreshold=0.3,
-        nmsThreshold=0.45),
+        modelPath=os.path.join(root_dir, "models/face_detection_yunet/face_detection_yunet_2023mar.onnx"),),
     yunet_q=dict(
         name="YuNet",
         topic="face_detection",
-        modelPath=os.path.join(root_dir, "models/face_detection_yunet/face_detection_yunet_2023mar_int8.onnx"),
-        topK=5000,
-        confThreshold=0.3,
-        nmsThreshold=0.45),
+        modelPath=os.path.join(root_dir, "models/face_detection_yunet/face_detection_yunet_2023mar_int8.onnx")),
     cascade_haar=dict(
-        name="HaarCascade",
+        name="CascadeClassifier",
         topic="face_detection"),    
     cascade_haar_alt=dict(
-        name="HaarCascade",
+        name="CascadeClassifier",
         topic="face_detection"),
     cascade_lbp=dict(
-        name="LbpCascade",
+        name="CascadeClassifier",
         topic="face_detection"),
     cascade_lbp_improved=dict(
-        name="LbpCascade",
+        name="CascadeClassifier",
         topic="face_detection"),
 )
 
