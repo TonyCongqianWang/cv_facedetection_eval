@@ -10,7 +10,8 @@ import numpy as np
 import cv2 as cv
 
 class YuNet:
-    def __init__(self, modelPath, inputSize=[320, 320], confThreshold=0.6, nmsThreshold=0.3, topK=5000, backendId=0, targetId=0):
+    # Changed default parameters to the ones used in model init to ensure equal parameters are used for both eval scripts
+    def __init__(self, modelPath, inputSize=[320, 320], confThreshold=0.3, nmsThreshold=0.45, topK=5000, backendId=0, targetId=0):
         self._modelPath = modelPath
         self._inputSize = tuple(inputSize) # [w, h]
         self._confThreshold = confThreshold

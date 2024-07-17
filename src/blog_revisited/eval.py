@@ -4,6 +4,8 @@ import sys
 import os
 import time
 
+models_dir = os.path.join("..", "..") #TODO
+
 parser = argparse.ArgumentParser("Simple inference with time evaluation on single image")
 parser.add_argument('image-path', type=str,
                     help='Usage: Set input to a certain image.')
@@ -11,31 +13,35 @@ parser.add_argument('model', type=str,
                     help='Usage: Set model type and config.')
 parser.add_argument('--out-dir', type=str,
                     help='Usage: Set out-dir of result imges.', default="./result_imgs")
+parser.add_argument('-num-threads', type=int, help="Usage: Set number of threads (1-4)", choices=[1,2,3,4])
 args = parser.parse_args()
 
+cv2.setNumThreads(args.num_threads)
+
+## To ensure same parameters are used for evaluation on WiderFace dataface both scripts the model wrapper objects created with default parameters
+
 def detect_cascade(img, k, model_path):
-    face_cascade = cv2.CascadeClassifier(model_path)
+    cascade_dir = os.path.join(models_dir, "face_detection_cascade")
+    sys.path.append(cascade_dir)
+    from cascadeclassifier import CascadeClassifier
+    model = CascadeClassifier(model_path)
     # Convert into grayscale
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # Starting time counter after conversion -> assumption is we already get grayscale images from device
     tic = time.perf_counter()
-    # Detect faces
+    # Inference
     for i in range(1, k):
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=3)
+        results = model.infer(gray)
     toc = time.perf_counter()
    
-    save_result(img, faces, toc - tic)
+    save_result(img, results, toc - tic)
 
 
 def detect_yunet(img, k, model_path):
-    yunet_dir = os.path.join("..", "..") #TODO
+    yunet_dir = os.path.join(models_dir, "face_detection_yunet")
     sys.path.append(yunet_dir)
     from yunet import YuNet
     model = YuNet(modelPath=model_path,
-              inputSize=[320, 320],
-              confThreshold=0.9,
-              nmsThreshold=0.3,
-              topK=5000,
               backendId=3, # OpenCv Backend
               targetId=0) # CPU Device
     h, w, _ = img.shape
@@ -46,10 +52,9 @@ def detect_yunet(img, k, model_path):
         results = model.infer(img)
     toc = time.perf_counter()
     print("Elapsed:", toc - tic)
-    faces = results # TODO
-    save_result(img, faces, toc - tic)
+    save_result(img, results, toc - tic)
 
-def save_result(img, faces, elapsed):
+def save_result(img, results, elapsed):
     out_file = os.path.join( args.out_dir, "/elapsed_time.txt")
     with open(out_file) as f: 
         print("Elapsed:", elapsed)
