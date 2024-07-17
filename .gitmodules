@@ -1,0 +1,3 @@
+[submodule "WiderFace-Evaluation"]
+	path = WiderFace-Evaluation
+	url = https://github.com/wondervictor/WiderFace-Evaluation
