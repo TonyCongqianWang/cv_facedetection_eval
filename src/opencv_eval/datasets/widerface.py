@@ -301,7 +301,12 @@ class WIDERFace:
             if det is None:
                 det = np.array([[10, 10, 20, 20, 0.002]])
             else:
-                det = np.append(np.around(det[:, :4], 1), np.around(det[:, -1], 3).reshape(-1, 1), axis=1)
+                try:
+                    det = np.append(np.around(det[:, :4], 1), np.around(det[:, -1], 3).reshape(-1, 1), axis=1)
+                except Exception as e:
+                    print(e)
+                    print(det)
+                    raise
 
             results_list[event_name][img_name.rstrip('.jpg')] = det
 

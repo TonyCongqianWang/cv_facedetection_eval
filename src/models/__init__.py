@@ -3,7 +3,7 @@ import glob
 import os
 
 from .face_detection_yunet.yunet import YuNet
-from .face_detection_cascade.cascdeclassifier import CascadeClassifier
+from .face_detection_cascade.cascadeclassifier import CascadeClassifier
 
 
 class ModuleRegistery:
