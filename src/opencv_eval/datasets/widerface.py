@@ -87,6 +87,13 @@ def norm_score(pred):
             min_score = min(_min, min_score)
 
     diff = max_score - min_score
+    if diff == 0:
+        for _, k in pred.items():
+            for _, v in k.items():
+                if len(v) == 0:
+                    continue
+                v[:, -1] = np.full(v[:, -1].shape, 0.5)
+        return
     for _, k in pred.items():
         for _, v in k.items():
             if len(v) == 0:

@@ -3,11 +3,12 @@ import cv2 as cv
 import math
 
 class CascadeClassifier:
-    def __init__(self, modelPath, is_test=True, input_size=None, scaleFactor=1.1, minNeighbors=3):
+    def __init__(self, modelPath, is_test=True, input_size=None, initial_scale=1, scaleFactor=1.1, minNeighbors=3):
         self._scalefactor = scaleFactor
         self._minNeighbours = minNeighbors
         self._model = cv.CascadeClassifier(modelPath)
         self._is_test = is_test
+        self._initial_scale = initial_scale
         _ = input_size
 
     @property
@@ -21,10 +22,13 @@ class CascadeClassifier:
         if self._is_test:
             if len(image.shape) > 2 and image.shape[2] > 1:
                 image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
+            if self._initial_scale != 1:
+                factor = self._initial_scale
+                image = cv.resize(image, dsize=None, fx=factor, fy=factor)
             faces, _, levelWeights  =  self._model.detectMultiScale3(image, scaleFactor=self._scalefactor, minNeighbors=1, outputRejectLevels=True)
             results = []
             for face, confidence in zip(faces, levelWeights):
-                confidence = 1/(1 + math.exp(-confidence/2))
+                #confidence = 1/(1 + math.exp(-confidence/2))
                 results.append(list(face) + [0 for _ in range(10)] + [confidence])
         else:
             faces = self._model.detectMultiScale(image, scaleFactor=self._scalefactor, minNeighbors=self._minNeighbours)

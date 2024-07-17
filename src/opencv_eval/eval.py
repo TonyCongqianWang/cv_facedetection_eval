@@ -51,6 +51,12 @@ models = dict(
         topic="face_detection",
         input_size=input_size,
         modelPath=os.path.join(root_dir, "models/face_detection_cascade/lbpcascade_frontalface_improved.xml")),    
+    cascade_lbp_improved_2=dict(
+        name="CascadeClassifier",
+        topic="face_detection",
+        input_size=input_size,
+        initial_scale=2,
+        modelPath=os.path.join(root_dir, "models/face_detection_cascade/lbpcascade_frontalface_improved.xml")),        
 )
 
 datasets = dict(

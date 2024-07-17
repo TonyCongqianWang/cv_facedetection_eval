@@ -80,7 +80,7 @@ steven.puttemans@kuleuven.be or toon.goedeme@kuleuven.be
   <featureParams>
     <maxCatCount>256</maxCatCount>
     <featSize>1</featSize></featureParams>
-  <stageNum>19</stageNum>
+  <stageNum>18</stageNum>
   <stages>
     <!-- stage 0 -->
     <_>
@@ -1023,22 +1023,7 @@ steven.puttemans@kuleuven.be or toon.goedeme@kuleuven.be
             0 -1 107 33555004 -1861746688 1073807361 -754909184
             645922856 8388608 134250648 419635458</internalNodes>
           <leafValues>
-            -5.2466005086898804e-001 7.1834069490432739e-001</leafValues></_></weakClassifiers></_>
-    <!-- stage 18 -->
-    <_>
-      <maxWeakCount>2</maxWeakCount>
-      <stageThreshold>1.9084988832473755e+000</stageThreshold>
-      <weakClassifiers>
-        <_>
-          <internalNodes>
-            0 -1 16 536064 131072 -20971516 524288 576 1048577 0 40960</internalNodes>
-          <leafValues>
-            -8.0000001192092896e-001 9.8018401861190796e-001</leafValues></_>
-        <_>
-          <internalNodes>
-            0 -1 56 67108864 0 4096 1074003968 8192 536870912 4 262144</internalNodes>
-          <leafValues>
-            -9.6610915660858154e-001 9.2831486463546753e-001</leafValues></_></weakClassifiers></_></stages>
+            -5.2466005086898804e-001 7.1834069490432739e-001</leafValues></_></weakClassifiers></_></stages>
   <features>
     <_>
       <rect>

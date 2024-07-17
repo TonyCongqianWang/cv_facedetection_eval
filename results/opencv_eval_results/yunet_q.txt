@@ -1,8 +1,7 @@
-python src\opencv_eval\eval.py -m yunet_q -
-d widerface -dr data\WiderFaceSet
+python src\opencv_eval\eval.py -m yunet_q -d widerface -dr data\WiderFaceSet
 Evaluating YuNet with WIDERFace val set: 3226it [05:20, 10.06it/s]
 Processing easy: 100%|█████████████████████████████████████████████████████████████████| 61/61 [00:19<00:00,  3.09it/s]
-C:\Users\tony.wang\source\repos_experimental\cv_facedetection_eval\src\opencv_eval\datasets\widerface.py:166: RuntimeWarning: invalid value encountered in scalar divide
+src\opencv_eval\datasets\widerface.py:166: RuntimeWarning: invalid value encountered in scalar divide
   _pr_curve[i, 0] = pr_curve[i, 1] / pr_curve[i, 0]
 Processing medium: 100%|███████████████████████████████████████████████████████████████| 61/61 [00:09<00:00,  6.12it/s]
 Processing hard: 100%|█████████████████████████████████████████████████████████████████| 61/61 [00:09<00:00,  6.14it/s]

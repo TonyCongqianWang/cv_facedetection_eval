@@ -1,0 +1,11 @@
+python src\opencv_eval\eval.py -m cascade_haar_alt -d widerface -dr data\WiderFaceSet
+Evaluating CascadeClassifier with WIDERFace val set: 3226it [06:57,  7.72it/s]
+Processing easy: 100%|█████████████████████████████████████████████████████████████████| 61/61 [00:15<00:00,  3.89it/s]
+src\opencv_eval\datasets\widerface.py:174: RuntimeWarning: invalid value encountered in scalar divide
+  _pr_curve[i, 0] = pr_curve[i, 1] / pr_curve[i, 0]
+Processing medium: 100%|███████████████████████████████████████████████████████████████| 61/61 [00:15<00:00,  3.90it/s]
+Processing hard: 100%|█████████████████████████████████████████████████████████████████| 61/61 [00:15<00:00,  3.87it/s]
+==================== Results ====================
+Easy   Val AP: 0.230986949003266
+Medium Val AP: 0.26576948315737775
+Hard   Val AP: 0.15767076233106025
