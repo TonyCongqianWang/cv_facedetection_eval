@@ -3,7 +3,7 @@ import cv2 as cv
 import math
 
 class CascadeClassifier:
-    def __init__(self, modelPath, is_test=True, input_size=None, pad_box=None, initial_scale=1, scaleFactor=1.1, minNeighbors=3):
+    def __init__(self, modelPath, is_test=True, input_size=None, pad_box=None, initial_scale=1, scaleFactor=1.1, minNeighbors=2):
         self._scalefactor = scaleFactor
         self._minNeighbours = minNeighbors
         self._model = cv.CascadeClassifier(modelPath)
