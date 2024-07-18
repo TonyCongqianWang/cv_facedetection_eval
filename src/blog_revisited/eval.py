@@ -25,7 +25,7 @@ def get_cascade(model_path):
     cascade_dir = os.path.join(models_dir, "face_detection_cascade")
     sys.path.append(cascade_dir)
     from cascadeclassifier import CascadeClassifier
-    model = CascadeClassifier(model_path, is_test=True)
+    model = CascadeClassifier(model_path, is_test=False)
     return model
 
 def get_yunet(model_path):
@@ -63,10 +63,10 @@ def save_result(img, results, elapsed, n_imgs):
     out_file = os.path.join(args.out_dir, "detection_img.jpg")
     save_img = img.copy() #TODO
     cv2.imwrite(out_file, save_img)
-    print(results)
+    #print(results)
 
 img = cv2.imread(args.image_path)
-iters = (20, 500)
+iters = (1, 1)
 convert_to_gray = False
 
 if "cascade" in args.model:
