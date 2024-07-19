@@ -20,80 +20,7 @@ Processor: Cortex-A72, 1500 MHz, 4 Cores
 
 While YuNet generally seems to be more accurate at detecting faces, when limiting the faces to upright frontal faces, the cascades seem to do a reasonable job that is not far off. While YuNet performs much faster on my Laptop, the results on the raspberry pi show that the lbp cascades are faster when using 4 threads. However, the quantized version of YuNet performed slower than the fp32 version. This indicates, that there is currently no optimization for quantized neural networks compatible with the aarch64 architecture. With the use of NEON simd instructions, the unit8 processing time should be lower by about a factor of 4. Surprisingly, the times measures on my raspberry pi were lower than the ones reported on the official [YuNet github](https://github.com/ShiqiYu/libfacedetection). This, combined with the fact that YuNet seems to not improve much with the use of 4 threads, indicates that YuNet in opencv-python is actually cheating and uses more threads than allowed! Lastly, the "improved" lbp cascade does not seem to be an improvement at all!
 
-- Raspberry Pi 4: Average processing time on image 0
-
-|Model | Time | Time | Time | Time |
-|-------------|--------|----------|--------|--------|
-|    | 1 thread |4 threads|1 thread |4 threads |
-|    | (320x320)| (320x320)|(640x640)|(640x640)|
-|yunet  | 0ms | 0ms | 0ms | 0ms |
-|yunet_q  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
-
-- Raspberry Pi 4: Average processing time on image 1
-
-|Model | Time | Time | Time | Time |
-|-------------|--------|----------|--------|--------|
-|    | 1 thread |4 threads|1 thread |4 threads |
-|    | (320x320)| (320x320)|(640x640)|(640x640)|
-|yunet  | 0ms | 0ms | 0ms | 0ms |
-|yunet_q  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
-
-- Raspberry Pi 4: Average processing time on image 2
-
-|Model | Time | Time | Time | Time |
-|-------------|--------|----------|--------|--------|
-|    | 1 thread |4 threads|1 thread |4 threads |
-|    | (320x320)| (320x320)|(640x640)|(640x640)|
-|yunet  | 0ms | 0ms | 0ms | 0ms |
-|yunet_q  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
-
-- Raspberry Pi 4: Average processing time on image 3
-
-|Model | Time | Time | Time | Time |
-|-------------|--------|----------|--------|--------|
-|    | 1 thread |4 threads|1 thread |4 threads |
-|    | (320x320)| (320x320)|(640x640)|(640x640)|
-|yunet  | 0ms | 0ms | 0ms | 0ms |
-|yunet_q  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
-
-- Raspberry Pi 4: Average processing time on image 4
-
-|Model | Time | Time | Time | Time |
-|-------------|--------|----------|--------|--------|
-|    | 1 thread |4 threads|1 thread |4 threads |
-|    | (320x320)| (320x320)|(640x640)|(640x640)|
-|yunet  | 0ms | 0ms | 0ms | 0ms |
-|yunet_q  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
-|cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
+See time_comparison_pi.md and time_comparison_laptop.md for result tables.
 
 ## Evaluation on WiderFace
 
@@ -101,7 +28,8 @@ Using the [opencv model zoo eval too](https://github.com/opencv/opencv_zoo/blob/
 
 ### Results
 
-- AP score on WIDER FACE val-set - no resizing
+AP score on WIDER FACE val-set - no resizing
+
 |Model | Easy Set | Medium Set | Hard Set |
 |-------------|--------|----------|--------|--------|
 |yunet  | 0ms | 0ms | 0ms |
