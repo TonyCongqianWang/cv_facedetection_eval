@@ -1,0 +1,1 @@
+Elapsed ms / img: 120.8
