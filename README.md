@@ -29,6 +29,7 @@ Using the [opencv model zoo eval too](https://github.com/opencv/opencv_zoo/blob/
 ### Results
 
 AP score on WIDER FACE val-set - no resizing
+For cascade_lbp_improved the boxes were padded.
 
 |Model | Easy Set | Medium Set | Hard Set |
 |-------------|--------|----------|--------|
@@ -41,4 +42,3 @@ AP score on WIDER FACE val-set - no resizing
 |cascade_lbp  | 0.202 | 0.227 | 0.118 |
 |cascade_lbp_improved  | 0.282 | 0.154 | 0.064 |
 
-For cascade_lbp_improved the boxes were padded.
