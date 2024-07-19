@@ -28,7 +28,8 @@ Using the [opencv model zoo eval too](https://github.com/opencv/opencv_zoo/blob/
 
 ### Results
 
-AP score on WIDER FACE val-set - no resizing
+AP score on WIDER FACE val-set - no resizing.
+
 For cascade_lbp_improved the boxes were padded.
 
 |Model | Easy Set | Medium Set | Hard Set |
