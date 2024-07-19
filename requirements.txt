@@ -1,4 +1,1 @@
 opencv-python
-tqdm
-scikit-learn
-scipy==1.8.1
