@@ -24,7 +24,7 @@ See time_comparison_pi.md and time_comparison_laptop.md for result tables.
 
 ## Evaluation on WiderFace
 
-Using the [opencv model zoo eval too](https://github.com/opencv/opencv_zoo/blob/main/tools/eval) to calculate the scores of each detector on widerface dataset. Note: YuNet model was trained on the WiderFace train-set which is annotated consistently with the val-set and contains similar face types. Cascades were trained on much smaller datasets with potentially different annotation guidelines and focus specifically on frontal upright faces. Additionally cascade type models are bad at outputting a smooth range of confidence scores. Both factors will result in lower scores for the cascade models.
+Using the [opencv model zoo eval tool](https://github.com/opencv/opencv_zoo/blob/main/tools/eval) to calculate the scores of each detector on widerface dataset. Note: YuNet model was trained on the WiderFace train-set which is annotated consistently with the val-set and contains similar face types. Cascades were trained on much smaller datasets with potentially different annotation guidelines and focus specifically on frontal upright faces. Additionally cascade type models are bad at outputting a smooth range of confidence scores. Both factors will result in lower scores for the cascade models. To run the eval tool, you must install the requirements with pip install -r requirements_wider_eval.txt and download the directories WIDER_val, wider_face_split and eval_tools from WiderFace and put them in data/WiderFaceset
 
 ### Results
 
