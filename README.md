@@ -31,7 +31,7 @@ Using the [opencv model zoo eval too](https://github.com/opencv/opencv_zoo/blob/
 AP score on WIDER FACE val-set - no resizing
 
 |Model | Easy Set | Medium Set | Hard Set |
-|-------------|--------|----------|--------|--------|
+|-------------|--------|----------|--------|
 |yunet  | 0ms | 0ms | 0ms |
 |yunet_q  | 0ms | 0ms | 0ms |
 |cascade_haar  | 0.215 | 0.260 | 0.144 |
