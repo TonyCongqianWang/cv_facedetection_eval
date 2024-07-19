@@ -32,8 +32,8 @@ AP score on WIDER FACE val-set - no resizing
 
 |Model | Easy Set | Medium Set | Hard Set |
 |-------------|--------|----------|--------|
-|yunet  | 0ms | 0ms | 0ms |
-|yunet_q  | 0ms | 0ms | 0ms |
+|yunet  | 0.884 | 0.866 | 0.750 |
+|yunet_q  | 0.881 | 0.862 | 0.750 |
 |cascade_haar  | 0.215 | 0.260 | 0.144 |
 |cascade_haar_alt  | 0.373 | 0.382 | 0.211 |
 |cascade_haar_alt2  | 0.371 | 0.380 | 0.210 |
