@@ -8,8 +8,8 @@ Raspberry Pi 4: Average processing time on image 0
 |yunet_q  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
+|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
 
@@ -23,8 +23,8 @@ Raspberry Pi 4: Average processing time on image 1
 |yunet_q  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
+|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
 
@@ -38,8 +38,8 @@ Raspberry Pi 4: Average processing time on image 2
 |yunet_q  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
+|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
 
@@ -53,8 +53,8 @@ Raspberry Pi 4: Average processing time on image 3
 |yunet_q  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
+|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
 
@@ -68,7 +68,7 @@ Raspberry Pi 4: Average processing time on image 4
 |yunet_q  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt  | 0ms | 0ms | 0ms | 0ms |
-|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_haar_alt_tree  | 0ms | 0ms | 0ms | 0ms |
+|cascade_haar_alt2  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp  | 0ms | 0ms | 0ms | 0ms |
 |cascade_lbp_improved  | 0ms | 0ms | 0ms | 0ms |
