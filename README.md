@@ -20,7 +20,7 @@ Processor: Cortex-A72, 1500 MHz, 4 Cores
 
 While YuNet generally seems to be more accurate at detecting faces, when limiting the faces to upright frontal faces, the cascades seem to do a reasonable job that is not far off. While YuNet performs much faster on my Laptop, the results on the raspberry pi show that the lbp cascades are faster when using 4 threads. However, the quantized version of YuNet performed slower than the fp32 version. This indicates, that there is currently no optimization for quantized neural networks compatible with the aarch64 architecture. With the use of NEON simd instructions, the unit8 processing time should be lower by about a factor of 4. Surprisingly, the times measures on my raspberry pi were lower than the ones reported on the official [YuNet github](https://github.com/ShiqiYu/libfacedetection). This, combined with the fact that YuNet seems to not improve much with the use of 4 threads, indicates that YuNet in opencv-python is actually cheating and uses more threads than allowed!
 
-See time_comparison_pi.md and time_comparison_laptop.md for result tables.
+See [time_comparison_pi](time_comparison_pi.md) and [time_comparison_laptop](time_comparison_laptop.md) for result tables.
 
 ## Evaluation on WiderFace
 
@@ -45,4 +45,4 @@ For cascade_lbp_improved the boxes were padded.
 
 ## Conclusion
 
-Depending on which configuration you use, the cascades an have very different performances, there is almost no reason to use haarcascades since they are very slow and less accurate than YuNet. LbpCascades however can be slightly faster. If you are running opencv on a x86 machine with many cores or a gpu, there YuNet is always the better choice than using the outdated cascades. However on a raspberry pi cascades can be slightly faster than YuNet. YuNet is far more accurate in general, but depending on your use-case cascades can have sufficient accuracy. The "improved" lbp cascade does seem to be a slight improvement for upright frontal faces as it has slightly lower runtime and better scores on upright faces. But the overall performance seems to be lower.
+Depending on which configuration you use, the cascades an have very different performances, there is almost no reason to use haarcascades since they are very slow and less accurate than YuNet. LbpCascades however can be slightly faster. If you are running opencv on a x86 machine with many cores or a gpu, YuNet is always the better choice than using the outdated cascades. However on a raspberry pi cascades can be slightly faster than YuNet. YuNet is far more accurate in general, but depending on your use-case cascades can have sufficient accuracy. The "improved" lbp cascade does seem to be a slight improvement for upright frontal faces as it has slightly lower runtime and better scores on upright faces. But the overall performance seems to be lower.
